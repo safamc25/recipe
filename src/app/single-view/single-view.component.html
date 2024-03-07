@@ -1,0 +1,59 @@
+<div class="container">
+    <div class="row m-5">
+        <div class="col-lg-6 ">
+            <img class="w-75 " [src]="singleRecipe.image" alt="">
+
+        </div>
+
+        <div class="col-lg-6">
+            <h1 id="f" class="text-danger text-center">{{singleRecipe.name}}</h1>
+            <ul class="list-group shadow-lg mt-4 ">
+                <li class="list-group-item py-4">
+                    <span id="f" class=" fs-4 p-2">Cusine</span>{{singleRecipe.cuisine}}
+                </li>
+                <li class="list-group-item py-4">
+                    <span id="f" class=" fs-4 p-2">Preparation Time</span>{{singleRecipe.prepTimeMinutes}} minutes
+                </li>
+                <li class="list-group-item py-4 ">
+                    <span id="f" class=" fs-4 p-2">Ingredients</span><br>
+                    {{singleRecipe.ingredients}}
+                </li>
+
+                <li class="list-group-item py-4 ">
+                    <span id="f" class=" fs-4 p-2">Instruction</span><br>
+                    {{singleRecipe.instructions}}
+                </li>
+
+                <li class="list-group-item py-4 ">
+                    <span id="f" class=" fs-4 p-2">Meal Type</span><br>
+                    {{singleRecipe.mealType}}
+                </li>
+
+
+
+
+
+                <li class="list-group-item py-4">
+
+                    <div>
+
+                        <p>Rating
+                            <span [ngClass]="singleRecipe.rating>=4?'c1':singleRecipe.rating>=3?'c3':'c2'">
+                                {{singleRecipe.rating}} <i class="fa-solid fa-star"></i></span>
+                        </p>
+
+                    </div>
+
+
+
+
+
+                </li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+</div>>

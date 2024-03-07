@@ -1,0 +1,55 @@
+<div class="row" style="background-color: gray;">
+    <div class="container " id="search">
+        <div class="mt-5 ms-5  me-5 d-flex ">
+            <label for="" class="d-flex border rounded shadow-lg">
+    
+                <input [(ngModel)]="recipeName" name="n1" [placeholder]="placeholderData" type="text" class="form-control">
+    
+    
+                <i class="fa-solid fa-lx mt-2 ms-3 fa-magnifying-glass fa-beat-fade pe-3"></i>
+            </label>
+        </div>
+
+
+   
+
+
+
+    <div class="dropdown d-flex   justify-content-center  ">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
+            data-bs-toggle="dropdown" aria-expanded="false">
+            Filter
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+            <li><button (click)="changeFilterData('Lunch')" class="dropdown-item active" href="#">Lunch</button></li>
+            <li><button (click)="changeFilterData('Dinner')" class="dropdown-item inactive" href="#">Dinner</button></li>
+            <li><button (click)="changeFilterData('Dessert')" class="dropdown-item inactive" href="#">Dessert</button></li>
+            <li><button (click)="changeFilterData('')" class="dropdown-item filter" href="#">Remove Filter</button></li>
+        </ul>
+    </div>
+</div>
+
+
+
+
+    <div class="row my-5" id="list">
+
+
+        <div *ngFor="let i of recipeList | search:recipeName:'name' |search:cuisine:'name'| filter:filterData | paginate: { itemsPerPage: 6, currentPage: p};"
+            class="card col-lg-3 col-md-6 m-5 w-25 ">
+            <a routerLink="single/{{i.id}}" style="text-decoration: none;">
+
+                <img [src]="i.image " class="card-img-top mt-4  ">
+            </a>
+            <div class="card-body text-center ">
+                <h5 class="card-title text-dark fs-4">{{i.name}}</h5>
+                <p class="card-text fs-5 ">{{i.cuisine}}</p>
+
+
+            </div>
+        </div>
+        <pagination-controls class="text-center" (pageChange)="p = $event"></pagination-controls>
+
+
+    </div>
+</div>
